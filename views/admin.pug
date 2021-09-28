@@ -1,0 +1,23 @@
+
+include header_for_site.pug
+
+include header-without-nav.pug
+
+div(class="panel")
+    div(class="panel-head")
+        a(href=`/`)
+            button(class="button-primary-outlined button-round") Home
+    div(class="panel-body")
+        h3 Admin panel
+        div(class="card")
+            h3(class="card-title") Add new elements
+            ul
+                li
+                    a(href="/auth/admin-category") Category
+                li
+                    a(href="/auth/admin-goods") Goods
+            h3(class="card-title") Show
+            ul
+                li
+                    a(href="/auth/admin-order") Order
+    

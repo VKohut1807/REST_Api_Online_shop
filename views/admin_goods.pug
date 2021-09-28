@@ -1,0 +1,65 @@
+include header_for_site.pug
+
+include header-without-nav.pug
+
+div(class="panel")
+    div(class="panel-head")
+        a(href=`/auth/admin`)
+            button(class="button-primary-outlined button-round") <- Back
+    div(class="panel-body")
+        h3 Admin panel
+        div(class="card")
+            h3(class="card-title") All Goods
+        
+table(id="admin-new-goods" class="table-universal")
+    thead
+      tr
+        th id
+        th name
+        th description
+        th cost
+        th image
+        th category
+    tbody
+        each val, index in goods
+            tr
+                td #{val["id"]}
+                td #{val["name"]}
+                td #{val["description"]}
+                td #{val["cost"].toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$& ")} $
+                td 
+                    img(
+                        src=`../img/${val["image"]}`
+                        class="goods-big-img"
+                    )
+                td #{val["category.category"]}
+                td(data-button_id=`${val["id"]}` class="delGoods")
+                    button(type="submit" class="button-danger button-small")
+                        i(class="fas fa-times" aria-hidden="true")
+br
+h2(class="text-center") Add new Goods
+form(class="new-goods" id="adminNewGoods")
+    fieldset
+        legend Name 
+        input(type="text", name="name" id="newCategoryGoods")
+    fieldset
+        legend Description
+        textarea(type="text", name="description" id="newDescrGoods")
+    fieldset
+        legend Cost 
+        input(type="number", name="cost" id="newCategoryGoods"  min="0")
+    fieldset
+        legend Image new Goods
+        input(type="file", name="fileImage" id="newImgGoods")
+    fieldset
+        legend Select Category 
+        select(name="category" id="categoryGoods")
+            each val2, index in category
+                option(value=`${val2.id}`)  #{val2["id"]} - #{val2["category"]}
+    button(
+        class="button-primary"
+        type="submit"
+    ) Add
+
+script(src="../js/adminGoods.js")
+script(src="//cdn.jsdelivr.net/npm/sweetalert2@11")

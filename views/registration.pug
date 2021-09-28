@@ -1,0 +1,41 @@
+include header_for_site.pug
+
+div(class="panel")
+    div(class="panel-head")
+        a(href=`/`)
+            button(class="button-primary-outlined button-round") Home
+    div(class="panel-body")
+        h3(class="text-center") Registration
+        div(class="wrap")
+            div(class="content")  
+                div(class="container reg-page")
+                    form(
+                        id="form-registration" class="card") 
+                        div(class="form-control")
+                            label(for="userName") Name
+                            input(
+                                type="text"
+                                id="userName"
+                                name="username"
+                                placeholder="Enter your name")
+                        div(class="form-control")
+                            label(for="password") Password
+                            input(
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="*********")
+                        div(class="form-control-group")
+                            div(class="form-control")
+                                a(href=`/auth/login` )
+                                    button(
+                                        class="button-primary-outlined"
+                                        type="button"
+                                        ) Login
+                                button(
+                                    class="button-primary"
+                                    type="submit"
+                                    ) Registration
+                                
+script(src="../js/registration.js")
+script(src="//cdn.jsdelivr.net/npm/sweetalert2@11")

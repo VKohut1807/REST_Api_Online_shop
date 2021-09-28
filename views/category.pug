@@ -1,0 +1,17 @@
+include header_for_site.pug
+
+include header.pug
+include navbar.pug
+
+div(class="panel")
+    div(class="panel-head")
+        a(href=`/`)
+            button(class="button-primary-outlined button-round") HOME
+    div(class="panel-body")
+        h2 #{categoryOne[0].category}
+        p #{categoryOne[0].description}
+        div(class="row")
+            each val, index in goodsOne
+                include card.pug
+
+include footer.pug
