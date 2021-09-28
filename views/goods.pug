@@ -1,0 +1,26 @@
+include header_for_site.pug
+
+include header.pug
+include navbar.pug
+
+div(class="panel")
+    div(class="panel-head")
+        a(href=`/category?id=${goodsG["category.id"]}`)
+            button(class="button-primary-outlined button-round") <- Back
+    div(class="panel-body")
+        h2(class="panel-title") #{goodsG["name"]}
+        div(class="card")
+            h5(class="card-title") Price: #{goodsG["cost"].toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$& ")} $
+            br
+            div(class="goods-img")
+                img(
+                    src=`./img/${goodsG["image"]}`
+                    )
+            br
+            p #{goodsG["description"]}
+            button(
+                class="button-success add-to-card"
+                data-goods_id = goodsG["id"]
+                ) to card 
+
+include footer.pug

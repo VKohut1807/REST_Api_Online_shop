@@ -1,0 +1,53 @@
+include header_for_site.pug
+
+include header-without-nav.pug
+
+div(class="panel")
+    div(class="panel-head")
+        a(href=`/auth/admin`)
+            button(class="button-primary-outlined button-round") <- Back
+    div(class="panel-body")
+        h3 Admin panel
+        div(class="card")
+            h3(class="card-title") All Category
+        
+table(id="admin-new-category" class="table-universal")
+    thead
+      tr
+        th id
+        th category
+        th discription
+        th image
+    tbody
+        each val, index in category 
+            tr
+                td #{val["id"]}
+                td #{val["category"]}
+                td #{val["description"]}
+                td 
+                    img(
+                        src=`../img/${val["image"]}`
+                        class="goods-big-img"
+                    )
+                td(data-button_id=`${val["id"]}` class="deleteCategory")
+                    button(type="submit" class="button-danger button-small")
+                        i(class="fas fa-times" aria-hidden="true")
+br
+h2(class="text-center") Add new Category
+form(class="new-category" id="adminNewCategory")
+    fieldset
+        legend Name 
+        input(type="text", name="name" id="newCategoryCat")
+    fieldset
+        legend Description
+        textarea(type="text", name="description" id="newDescrCat")
+    fieldset
+        legend Image new category
+        input(type="file", name="fileImage" id="newImgCat")
+    button(
+        class="button-primary"
+        type="submit"
+    ) Add
+
+script(src="../js/adminCategory.js")
+script(src="//cdn.jsdelivr.net/npm/sweetalert2@11")

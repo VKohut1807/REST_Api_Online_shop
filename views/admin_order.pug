@@ -1,0 +1,35 @@
+include header_for_site.pug
+
+include header-without-nav.pug
+
+div(class="panel")
+    div(class="panel-head")
+        a(href=`/auth/admin`)
+            button(class="button-primary-outlined button-round") <- Back
+    div(class="panel-body")
+        h3 Admin panel
+        div(class="card")
+            h3(class="card-title") Order-information
+        
+table(class="table-universal admin-order")
+    thead
+        tr
+            th id
+            th date
+            th user Id
+            th user Name
+            th user Address
+            th goods Id
+            th goods Amount
+            th total
+    tbody
+    each val, index in order_shop
+        tr
+            td #{val["id"]}
+            td #{val["createdAt"]}
+            td #{val["user_id"]}
+            td #{val["user_info.user_name"]}
+            td #{val["user_info.address"]}
+            td #{val["goods_id"]}
+            td #{val["goods_amount"]}
+            td #{val["total"].toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$& ")} $

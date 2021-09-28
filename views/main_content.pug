@@ -1,0 +1,19 @@
+div(class="main-content")
+    div(class="panel")
+        div(class="panel-head")
+            h1 R e c o m m e n d e d:
+        div(class="panel-body")
+            div(class="row")
+                each val2, index2 in categoryIndex 
+                    div(class="col col-sm-12 col-md-12 col-lg-12")
+                        a(
+                            href=`/category?id=${val2["id"]}` class="category-index"
+                        )
+                            h3() #{val2["category"]}
+                            div(class="category-index-img")
+                                img(
+                                    src=`./img/${val2["image"]}`
+                                )
+                    each val, index in goodsIndex
+                        if val2["id"] == val["category_id"]
+                            include card.pug   

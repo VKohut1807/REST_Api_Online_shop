@@ -1,0 +1,62 @@
+include header_for_site.pug
+
+include header-without-nav.pug
+
+div(class="panel")
+    div(class="panel-head")
+        h3 Finish order
+    div(class="panel-body")
+        h3(class="card-title") Card
+        div(class="card")
+            div(class="card-nav")
+        br   
+        h3(class="card-title ") Create order        
+        div(class="row")
+            div(class="card col col-lg-6 col-md-6")
+                form(
+                    id="lite-shop-order"
+                    ) 
+                    div(class="form-control")
+                        label(for="username") Name
+                        input(
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Enter your name")
+                    div(class="form-control")
+                        label(for="phone") Phone
+                        input(
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="+3(48) 000 000 000")
+                    div(class="form-control")
+                        label(for="email") Email
+                        input(
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="mail@example.com")
+                    div(class="form-control")
+                        label(for="address") Address
+                        input(
+                            type="text"
+                            id="address"
+                            name="address"
+                            placeholder="Country X, str. X")
+                    div(class="form-control")
+                        input(
+                            type="checkbox"
+                            id="rule"
+                            name="rule"
+                        )
+                        label(for="rule" title="Нou hereby consent to the use of your personal data") Term and Conditions *
+                    div(class="form-control text-right")
+                        button(
+                            class="button-primary"
+                            type="submit"
+                            ) Finish order
+
+include footer.pug
+
+script(src="js/order.js")

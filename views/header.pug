@@ -1,0 +1,15 @@
+div(class="header")
+    div(class="row")
+        div(class="col col-sm-6 col-md-9 col-lg-9 ")
+            a(href="/")
+                h1 Lite Shop
+        div(class="col col-sm-6 col-md-3 col-lg-3 element-right")
+            div(class="row ")
+                div(class="col col-sm-6 col-md-6 col-lg-6 element-right")
+                    a(href="/auth/login") 
+                        button <i class="far fa-user-circle"></i>
+                div(class="col col-sm-6 col-md-6 col-lg-6 element-right")
+                    button(class="show-nav") <i class="fas fa-bars"></i>
+    include user_now.pug
+
+script(src="//cdn.jsdelivr.net/npm/sweetalert2@11")
