@@ -221,6 +221,51 @@ class authController {
             })
     }
 
+    async users_get(req, res) {
+        await User.findAll({
+            raw: true,
+        })
+            .then(data => {
+                res.render("admin_users.pug", {
+                    users: data
+                });
+            })
+            .catch(err => {
+                console.log(err)
+                return res.status(400).json({ message: "Users error" })
+            })
+    }
+    async users(req, res) {
+        const { userId, name, password, roles } = req.body;
+        const hashPassword = bcrypt.hashSync(password, 7);
+        await User.update({
+            user_name: name,
+            password: hashPassword,
+            roles: roles,
+        },
+            {
+                where: { id: userId }
+            }
+        )
+            .then(data => res.status(200).json({ message: "User data has been changed" }))
+            .catch(err => {
+                console.log(err)
+                return res.status(400).json({ message: "User data - error" })
+            })
+    }
+    async usersDel(req, res) {
+        let userId = req.body.userId;
+
+        await User.destroy({ where: { id: userId } })
+            .then(data => {
+                return res.status(200).json(data)
+            })
+            .catch(err => {
+                console.log(err)
+                return res.status(400).json({ message: "Delete User - error" })
+            });
+    }
+
     async order_get(req, res) {
         await Shop_order.findAll({
             raw: true,

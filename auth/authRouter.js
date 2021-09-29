@@ -32,6 +32,10 @@ routerAuth.get("/admin-goods", roleMiddleware(["ADMIN"]), controller.goods_get);
 routerAuth.post("/admin-goods", roleMiddleware(["ADMIN"]), controller.goods);
 routerAuth.delete("/admin-goods", roleMiddleware(["ADMIN"]), controller.goodsDel);
 
+routerAuth.get("/admin-users", roleMiddleware(["ADMIN"]), controller.users_get);
+routerAuth.put("/admin-users", roleMiddleware(["ADMIN"]), controller.users);
+routerAuth.delete("/admin-users", roleMiddleware(["ADMIN"]), controller.usersDel);
+
 routerAuth.get("/admin-order", roleMiddleware(["ADMIN", "SELLER"]), controller.order_get);
 
 routerAuth.post("/uploads-img", roleMiddleware(["ADMIN"]), controller.uploadsImg);
