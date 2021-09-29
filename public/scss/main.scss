@@ -33,6 +33,10 @@ img {
     text-align: center;
 }
 
+.textDots{
+    text-overflow: ellipsis;
+}
+
 .panel-head {
     width: 100%;
     display: flex;
@@ -172,6 +176,11 @@ img {
         }
     }
 
+    .users-pass{
+        max-width: 50px;
+        overflow: hidden;
+    }
+
     td:first-child {
         border-bottom-left-radius: 20px;
     }
@@ -183,6 +192,10 @@ img {
     tr {
         text-align: center;
     }
+}
+
+.shawForm{
+    display: none;
 }
 
 .site-nav {

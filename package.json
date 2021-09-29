@@ -1,0 +1,41 @@
+{
+  "name": "node_internet_shop",
+  "version": "1.0.0",
+  "description": "example REST API - Internet-shop, was used: nodejs, express, multer, nodemailer, mysql, sequelize, pug, mustard-ui, sweetalert2",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rest api",
+    "internet-shop",
+    "shop",
+    "nodejs",
+    "express",
+    "pug",
+    "mysql",
+    "sequelize",
+    "mustard-ui",
+    "sweetalert2",
+    "nodemailer",
+    "multer",
+    "bcryptjs",
+    "cookie",
+    "jsonwebtoken"
+  ],
+  "author": "vasyl kohut",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie": "^0.4.1",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "express-validator": "^6.12.1",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.3",
+    "mysql2": "^2.2.5",
+    "nodemailer": "^6.6.3",
+    "pug": "^3.0.2",
+    "sequelize": "^6.6.5"
+  }
+}

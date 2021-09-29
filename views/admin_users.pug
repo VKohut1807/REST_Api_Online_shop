@@ -1,0 +1,61 @@
+include header_for_site.pug
+
+include header-without-nav.pug
+
+div(class="panel")
+    div(class="panel-head")
+        a(href=`/auth/admin`)
+            button(class="button-primary-outlined button-round") <- Back
+    div(class="panel-body")
+        h3 Admin panel
+        div(class="card")
+            h3(class="card-title") Registered Users
+        
+table(id="admin-registered-user" class="table-universal")
+    thead
+      tr
+        th id
+        th name
+        th password
+        th roles
+    tbody
+        each user, index in users 
+            tr(data-tr_id=`${user["id"]}`)
+                td #{user["id"]}
+                td #{user["user_name"]}
+                td(class="textDots users-pass") #{user["password"]}
+                td #{user["roles"]}
+                td(
+                    data-button_id=`${user["id"]}`
+                    data-button_name=`${user["user_name"]}`
+                    data-button_password=`${user["password"]}`
+                    data-button_roles=`${user["roles"]}`
+                    class="changesUser")
+                    button(class="button-warning button-small")
+                        <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                td(data-button_id=`${user["id"]}` class="deleteUser")
+                    button(type="submit" class="button-danger button-small")
+                        i(class="fas fa-times" aria-hidden="true")
+br
+div(class="shawForm" id="fixForm") 
+    h2(class="text-center") Fix Users
+    form(id="adminChangesUser" )
+        fieldset
+            legend ID 
+            input(id="SelectUserId" type="number", name="id" value="" disabled)
+        fieldset
+            legend Name 
+            input(id="SelectUserName" type="text", name="name" value="")
+        fieldset
+            legend Password
+            input(id="SelectUserPassword" type="password", name="password" value="")
+        fieldset
+            legend Roles
+            input(id="SelectUserRoles" type="text", name="roles" value="")
+        button(
+            class="button-warning"
+            type="submit"
+        ) To Fix
+
+script(src="../js/adminUsers.js")
+script(src="//cdn.jsdelivr.net/npm/sweetalert2@11")

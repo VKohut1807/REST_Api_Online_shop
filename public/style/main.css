@@ -33,6 +33,10 @@ img {
   text-align: center;
 }
 
+.textDots {
+  text-overflow: ellipsis;
+}
+
 .panel-head {
   width: 100%;
   display: flex;
@@ -153,6 +157,10 @@ img {
 .table-universal td img {
   max-width: 285px;
 }
+.table-universal .users-pass {
+  max-width: 50px;
+  overflow: hidden;
+}
 .table-universal td:first-child {
   border-bottom-left-radius: 20px;
 }
@@ -161,6 +169,10 @@ img {
 }
 .table-universal tr {
   text-align: center;
+}
+
+.shawForm {
+  display: none;
 }
 
 .site-nav {
